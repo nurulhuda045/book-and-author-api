@@ -64,7 +64,7 @@ router.patch('/books/:id', auth, async (req, res) => {
     }
 
     try {
-        const book = await Book.findOne({_id, owner: req.author._id})
+        const book = await Book.findOne({_id, owner_id: req.author._id})
 
         if(!book) {
             return res.status(404).send()
